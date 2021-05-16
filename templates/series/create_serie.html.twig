@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une nouvelle série{% endblock %}
+
+{% block body %}
+  <h1> Création d'une série </h1>
+
+  {{ form_start(formSerie) }}
+    {{ form_row(formSerie.titreVF,  {'attr': {'placeholder': "Titre français"}})}}
+    {{ form_row(formSerie.titreVO, {'attr': {'placeholder': "Titre original"}}) }}
+    {{ form_row(formSerie.anneeDeb, {'attr': {'placeholder': "Titre original"}}) }}
+    {{ form_row(formSerie.anneeFin, {'attr': {'placeholder': "Titre original"}}) }}
+    {{ form_row(formSerie.description, {'attr': {'placeholder': "Titre original"}}) }}
+    {{ form_row(formSerie.status) }}
+    {{ form_row(formSerie.pays) }}
+    {{ form_row(formSerie.genres) }}
+
+    <button type="submit" class="btn btn-primary"> Ajouter la série </button>
+  {{ form_end(formSerie) }}
+
+{% endblock %}

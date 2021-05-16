@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <h1>Profile de {{user.username}}</h1>
+
+      nom = {{user.nom}}<br>
+      prénom = {{user.prenom}}<br>
+      email = {{user.email}}<br>
+
+      {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{path('list_users')}}"> Afficher la liste des Utilisateurs </a>
+      {% endif %}
+
+
+
+{% endblock %}

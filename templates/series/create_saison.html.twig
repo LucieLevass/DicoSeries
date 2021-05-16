@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'une Saison{% endblock %}
+
+{% block body %}
+  <h1> Création d'une saison </h1>
+
+  {{ form_start(formSaison) }}
+  
+    {{ form_row(formSaison.serie) }}
+
+    {{ form_row(formSaison.numSaison,  {'attr': {'placeholder': "Numero de la saison"}})}}
+    {{ form_row(formSaison.description,  {'attr': {'placeholder': "Numero de la saison"}})}}
+    {{ form_row(formSaison.anneeDeb,  {'attr': {'placeholder': "Numero de la saison"}})}}
+    {{ form_row(formSaison.anneeFin,  {'attr': {'placeholder': "Numero de la saison"}})}}
+
+    <button type="submit" class="btn btn-primary"> Ajouter la saison </button>
+  {{ form_end(formSaison) }}
+
+{% endblock %}

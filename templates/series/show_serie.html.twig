@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{serie.titreVF}} {% endblock %}
+
+{% block body %}
+
+  <h1> {{serie.titreVF}} </h1>
+
+  {% for saison in saisons %}
+    <h3><a href={{ path('saison_show', {'slugSerie':serie.slugSerie, 'slugSaison':saison.slugSaison}) }}>Saison {{saison.numSaison}} </a></h3>
+  {% endfor %}
+
+{% endblock %}

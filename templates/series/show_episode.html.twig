@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {% endblock %}
+
+{% block body %}
+
+  <h1> {{episode.saison.serie.titreVF}} </h1>
+  <h2 style="text-transform: capitalize"> Saison {{episode.saison.numSaison}} Episode {{episode.numEpisode}} : {{episode.titreVF}} </h2>
+
+{% endblock %}

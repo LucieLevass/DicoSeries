@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saison {{saison.numSaison}} {% endblock %}
+
+{% block body %}
+
+  <h1>Saison {{saison.numSaison}} </h1>
+
+  {% for episode in episodes %}
+
+    {% if episode.numEpisode < 10 %}
+      <h3 style="text-transform: capitalize">
+        <a href={{ path('episode_show', {'slugSerie':saison.serie.slugSerie, 'slugSaison':saison.slugSaison, 'slugEpisode':episode.slugEpisode}) }}>
+          {{saison.numSaison}}x0{{episode.numEpisode}} {{episode.titreVF}}
+        </a>
+      </h3>
+    {% else %}
+      <h3 style="text-transform: capitalize">
+        <a href={{ path('episode_show', {'slugSerie':saison.serie.slugSerie, 'slugSaison':saison.slugSaison, 'slugEpisode':episode.slugEpisode}) }}>
+          {{saison.numSaison}}x{{episode.numEpisode}} {{episode.titreVF}}
+        </a>
+      </h3>
+    {% endif %}
+
+  {% endfor %}
+
+{% endblock %}

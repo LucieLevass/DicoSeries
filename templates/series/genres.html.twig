@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche des séries par Genre{% endblock %}
+
+{% block body %}
+
+  <h1> Recherche les séries par Genres </h1>
+  {% for genre in genres %}
+    <h3 style="text-transform: capitalize">
+      <a href="{{ path('series_genre', {'nomGenre':genre.nomGenre}) }}"> {{genre.nomGenre}} </a>
+    </h3>
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche des séries par Pays{% endblock %}
+
+{% block body %}
+
+  <h1> Recherche les séries par Pays </h1>
+  {% for p in pays %}
+    <h3 style="text-transform: capitalize"><a href="{{ path('series_pays', {'nomPays':p.nomPays}) }}"> {{p.nomPays}} </a></h3>
+  {% endfor %}
+
+{% endblock %}

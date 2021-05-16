@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Séries{% endblock %}
+
+{% block body %}
+
+  <h1><a href="{{path('status_liste')}}"> Trouver des séries par status</a></h1>
+
+  <h1><a href="{{path('pays_liste')}}"> Trouver des séries par pays </a></h1>
+
+  <h1><a href="{{path('genres_liste')}}"> Trouver des séries par genre </a></h1>
+
+  <h1> Liste des Séries </h1>
+
+  {% for serie in series %}
+    <h3><a href="{{ path('serie_show', {'slugSerie':serie.slugSerie}) }}"> {{serie.titreVF}} </a></h3>
+  {% endfor %}
+
+
+  {#{{ knp_pagination_render(series) }}#}
+
+
+{% endblock %}

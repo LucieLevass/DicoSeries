@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Séries{% endblock %}
+
+{% block body %}
+
+  <h1> Liste des Séries du genre : {{genre.nomGenre}} </h1>
+
+  {% for serie in series %}
+    <h3 style="text-transform: capitalize">
+      <a href="{{ path('serie_show', {'slugSerie':serie.slugSerie}) }}"> {{serie.titreVF}} </a>
+    </h3>
+  {% endfor %}
+
+
+  {{ knp_pagination_render(series) }}
+
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche des séries par Status{% endblock %}
+
+{% block body %}
+
+  <h1> Recherche les séries par Status </h1>
+  {% for s in status %}
+    <h3 style="text-transform: capitalize"><a href="{{ path('series_status', {'nomStatus':s.nomStatus}) }}"> {{s.nomStatus}} </a></h3>
+  {% endfor %}
+
+{% endblock %}

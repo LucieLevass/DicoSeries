@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'un Episode{% endblock %}
+
+{% block body %}
+  <h1> Création d'un Episode </h1>
+
+  {{ form_start(formEpisode) }}
+
+    {{ form_row(formEpisode.serie) }}
+    {{ form_row(formEpisode.saison) }}
+
+    {{ form_row(formEpisode.numEpisode,  {'attr': {'placeholder': "Numero de l'épisode"}})}}
+    {{ form_row(formEpisode.titreVF,  {'attr': {'placeholder': "Titre français de l'épisode"}})}}
+    {{ form_row(formEpisode.titreVO,  {'attr': {'placeholder': "Titre original de l'épisode"}})}}
+    {{ form_row(formEpisode.resume) }}
+    {{ form_row(formEpisode.dateDiffVO) }}
+    {{ form_row(formEpisode.dateDiffVF) }}
+
+    <button type="submit" class="btn btn-primary"> Ajouter l'épisode </button>
+  {{ form_end(formEpisode) }}
+
+{% endblock %}
+
+{% block javascripts %}
+  <script>
+    var $serie = $("#episode_serie")
+    var $token = $("#episode_token")
+
+    $serie.change(function(){
+      var $form = $(this).closest('formEpisode')
+      var data = {}
+
+      data[$token.attr('name')] = $token.val()
+      data[$serie.attr('name')] = $serie.val()
+
+      $.post($form.attr('action'), data).then(function(responce){
+        $("#episode_saison").replaceWith(
+          $(responce).find("#episode_saison")
+        )
+      })
+    })
+  </script>
+{% endblock %}
